@@ -2,13 +2,57 @@
 #include <string>
 using namespace std;
 
+
+
+class pasword {	
+	public :
+		void access () ;   
+};
+
+class type_of_exam  
+{
+public :
+
 void questiontesti();
 void descripQues();
 void list();
 
+};
+
 int main() 
 {
-    // for inter ostad /pasword
+pasword ob ;
+ob.access() ;
+type_of_exam ob2 ;
+			int choose = 0;
+		while (choose != -1)
+			{
+				cin >> choose;
+				switch (choose )
+				{
+					case 1 :
+					{
+					 ob2.questiontesti(); 
+					 	
+						break;
+					}
+					case 2 :
+					{
+					ob2.descripQues();
+						break;
+					}
+				}
+			}
+        //edameeeeeeeeeee..........
+        
+        
+
+
+    return 0;
+}
+
+ void pasword::access()   {
+		 // for inter ostad /pasword
     string userType;
     string username;
     string password;
@@ -26,48 +70,28 @@ int main()
         if (username == "A" && password == "1234" && userType == "teacher" ) 
 		{
             loggedIn = true;
-            cout << "hello teacher , welcome!" << endl;
+            cout << "hellow teacher , welcome!\n----------------------------\n" ;
     		
-			int choose = 0;
-			cout << "for tst enter *1*\nfor dscrip enter *2*\nfor finish *-1*\n";
-			while (choose != -1)
-			{
-				cin >> choose;
-				switch (choose )
-				{
-					case 1 :
-					{
-					    questiontesti(); 	
-						break;
-					}
-					case 2 :
-					{
-   				 		descripQues();
-						break;
-					}
-				}
-			}
-        //edameeeeeeeeeee..........
-        
-        
-        }
+		
+			cout << " Dear BOSS \n for tst exam enter (1)\n for dscrip exam enter *(2)\n for finish (-1)\n";
+		        }
 		else if(username == "A" && password == "1234" && userType == "student")
 		{
 			loggedIn = true;
-            cout << "hallo student , welcome to the exam!" << endl;
-            //.............?????
+            cout << "hallow student , welcome to the exam!" << endl;
+			            //.............?????
                 
         }
         else
         {
         	cout << "Invalid username or password. Please try again." << endl;
 		}
-    }
+		  }		
+			
+		}
 
-    return 0;
-}
 
-void questiontesti()
+void  type_of_exam ::questiontesti()
 {
     int numberOfStudents, numberOfQuestions;
     cout << "Enter the number of students forquestiontesti : ";
@@ -88,13 +112,12 @@ void questiontesti()
     for (int i = 0; i < numberOfQuestions; ++i)
 	{
         cout << " Boss :Enter question  " << (i + 1) << ": ";
-        cin.ignore(); // Ignores the newline character from the previous input
+        cin.ignore(); 
         getline(cin, questions[i]);
         cout << "Boss :Enter the correct answer for question " << (i + 1) << " (A, B, C, or D): ";
         cin >> answerKey[i];
     }
-
-    // Enter student answers and calculate scores
+   
     for (int s = 0; s < numberOfStudents; ++s)
 	{
         int score = 0;
@@ -119,7 +142,7 @@ void questiontesti()
     delete[] studentAnswers;
 }
 
-void descripQues()
+ void type_of_exam ::descripQues()
 {
     int numberOfStudents, numberOfDescripQues;
     cout << "Enter the number of students: ";
@@ -180,7 +203,8 @@ void descripQues()
     delete[] studentAnswers;
 }
 
-void list()
+void   type_of_exam:: list()
 {
-	cout << "\n1_ask the question .\n2_  (edameeeeee)  "
+	cout << "\n1_ask the question .\n2_  (edameeeeee)  " ;
 }
+
