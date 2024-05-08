@@ -5,7 +5,7 @@ using namespace std;
 class pasword
 {
 public:
-//    void access();
+    //    void access();
 };
 
 class type_of_exam
@@ -17,22 +17,21 @@ public:
     void list_student();
     void list_of_questions();
     void techer_work();
-    void student_work();  
-	  void boss();
+    void student_work();
+    void boss();
 };
 
 class tozih : public type_of_exam
 {
 public:
-
 };
 
 int main()
 {
-	
-    //pasword ob;
+
+    // pasword ob;
     type_of_exam ob2;
-//    tozih ob3;
+    //    tozih ob3;
     // for inter ostad /pasword
     string userType;
     string username;
@@ -66,13 +65,12 @@ int main()
         {
             cout << "Invalid username or password. Please try again." << endl;
         }
-    }    
+    }
 
     return 0;
 }
 
-//void pasword::access()
-
+// void pasword::access()
 
 void type_of_exam ::questiontesti()
 {
@@ -101,22 +99,22 @@ void type_of_exam ::questiontesti()
         cin >> answerKey[i];
     }
 
-/*  for (int s = 0; s < numberOfStudents; ++s)
-    {
-        int score = 0;
-        cout << "Enter answers for student " << (s + 1) << ": \n";
-        for (int q = 0; q < numberOfQuestions; ++q)
+    /*  for (int s = 0; s < numberOfStudents; ++s)
         {
-            cin >> studentAnswers[s][q];
-            if (studentAnswers[s][q] == answerKey[q])
+            int score = 0;
+            cout << "Enter answers for student " << (s + 1) << ": \n";
+            for (int q = 0; q < numberOfQuestions; ++q)
             {
-                score++;
+                cin >> studentAnswers[s][q];
+                if (studentAnswers[s][q] == answerKey[q])
+                {
+                    score++;
+                }
             }
+            cout << "Score for student " << (s + 1) << ": " << score << " out of " << numberOfQuestions << endl
+                 << "\n you can continue or finished so enter anumber";
         }
-        cout << "Score for student " << (s + 1) << ": " << score << " out of " << numberOfQuestions << endl
-             << "\n you can continue or finished so enter anumber";
-    }
-*/
+    */
     delete[] questions;
     delete[] answerKey;
     for (int i = 0; i < numberOfStudents; ++i)
@@ -151,33 +149,33 @@ void type_of_exam ::descripQues()
         getline(cin, correctAnswers[i]);
     }
 
-/*  for (int s = 0; s < numberOfStudents; ++s)
-    {
-        cout << "Answer from student " << (s + 1) << ": \n";
-        for (int q = 0; q < numberOfDescripQues; ++q)
+    /*  for (int s = 0; s < numberOfStudents; ++s)
         {
-            cout << questions[q] << endl;
-            getline(cin, studentAnswers[s][q]);
-
-            for (int s = 0; s < numberOfStudents; ++s)
+            cout << "Answer from student " << (s + 1) << ": \n";
+            for (int q = 0; q < numberOfDescripQues; ++q)
             {
-                int score = 0;
-                cout << "Answer from student " << (s + 1) << ": \n";
-                for (int q = 0; q < numberOfDescripQues; ++q)
+                cout << questions[q] << endl;
+                getline(cin, studentAnswers[s][q]);
+
+                for (int s = 0; s < numberOfStudents; ++s)
                 {
-                    cout << questions[q] << endl;
-                    getline(cin, studentAnswers[s][q]);
-                    if (studentAnswers[s][q] == correctAnswers[q])
+                    int score = 0;
+                    cout << "Answer from student " << (s + 1) << ": \n";
+                    for (int q = 0; q < numberOfDescripQues; ++q)
                     {
-                        score++;
+                        cout << questions[q] << endl;
+                        getline(cin, studentAnswers[s][q]);
+                        if (studentAnswers[s][q] == correctAnswers[q])
+                        {
+                            score++;
+                        }
                     }
+                    cout << "Score for student " << (s + 1) << ": " << score << " out of " << numberOfDescripQues << endl
+                         << "\n you can continue or finished so enter anumber";
                 }
-                cout << "Score for student " << (s + 1) << ": " << score << " out of " << numberOfDescripQues << endl
-                     << "\n you can continue or finished so enter anumber";
             }
         }
-    }
-*/
+    */
     delete[] questions;
     delete[] correctAnswers;
     for (int i = 0; i < numberOfStudents; ++i)
@@ -191,7 +189,7 @@ void type_of_exam ::techer_work()
 {
     type_of_exam obj1;
     obj1.list_teacher();
-    int item ;
+    int item;
     cin >> item;
     switch (item)
     {
@@ -219,8 +217,12 @@ void type_of_exam ::techer_work()
             }
             case 3:
             {
-          obj1.boss () ;
-            	
+                obj1.boss();
+
+                break;
+            }
+            case 4:
+            {
                 break;
             }
             }
@@ -234,7 +236,6 @@ void type_of_exam ::techer_work()
     }
     case 3:
     {
-        
         //..........
         break;
     }
@@ -250,14 +251,14 @@ void type_of_exam ::student_work()
 {
     type_of_exam obj2;
     obj2.list_student();
-    int item ;
+    int item;
     cin >> item;
     switch (item)
     {
     case 1:
     {
         cout << "\n-------------------------------\ntst is start\n\n";
-        
+
         break;
     }
     case 2:
@@ -265,12 +266,12 @@ void type_of_exam ::student_work()
         //...........
         break;
     }
-    }   
+    }
 }
 
 void type_of_exam::list_teacher()
 {
-	cout << " Dear Boss please choose an option  :  " ;
+    cout << " Dear Boss please choose an option  :  ";
     cout << "\n1_making the tst .";
     cout << "\n2_view the history of previouns exams and their results .";
     cout << "\n3_exams in the correction queue .";
@@ -285,14 +286,14 @@ void type_of_exam::list_student()
 
 void type_of_exam::list_of_questions()
 {
-    cout << "\n Dear BOSS" ;
-   cout  <<  "\n 1_for tst exam enter ." ;  
-    cout << "\n 2_for dscrip exam enter .";
-    cout << "\n 3_for show grade of student   " ; 
+    cout << "\n Dear BOSS";
+    cout << "\n 1_for make tst exam .";
+    cout << "\n 2_for make dscrip exam  .";
+    cout << "\n 3_for show grade of student   ";
     cout << "\n 4_ finish .";
 }
 
-void type_of_exam :: boss()
+void type_of_exam ::boss()
 {
     int n = 0;
     cout << "DEAR BOSS please enter number of student that have  grads: \n  ";
