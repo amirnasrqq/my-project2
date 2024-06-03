@@ -1,8 +1,10 @@
 //this is new project
-
-
-
+ 
+ 
+ //  <<<<<<<<<<<<<<<<<<<              for username enter every think but for pasword enter  40262   >>>>>>>>>>>>>>>>>>>>>>>>>
 #include <iostream>
+#include <chrono>    //for add time for exam
+#include <thread>    //for add time for exam
 #include <string>
 using namespace std;
 
@@ -12,11 +14,11 @@ public:
     //    void access();
 };
 
-class type_of_exam
+class student
 {
 public:
-    void questiontesti();
-    void descripQues();
+    void examtime();
+    void eteraz();
     void list_teacher();
     void list_student();
     void list_of_questions();
@@ -25,7 +27,7 @@ public:
     void boss();
 };
 
-class tozih : public type_of_exam
+class tozih : public student
 {
 public:
 };
@@ -34,7 +36,7 @@ int main()
 {
 
     // pasword ob;
-    type_of_exam ob2;
+student ob2;
     //    tozih ob3;
     // for inter ostad /pasword
     string userType;
@@ -44,17 +46,17 @@ int main()
 
     while (!loggedIn)
     {
-        cout << "Enter user type ( student / teacher ) : ";
+        cout << "dear student for start enter student : ";
         cin >> userType;
         cout << "Enter your username: ";
         cin >> username;
         cout << "Enter your password: ";
         cin >> password;
 
-        if (username == "A" && password == "1234" && userType == "teacher")
+        if ( password == "40262" && userType == "student")
         {
             loggedIn = true;
-            cout << "hellow teacher , welcome!\n----------------------------\n";
+            cout << "hellow student  , are you ready!\n----------------------------\n";
             ob2.techer_work();
         }
         else if (username == "A" && password == "1234" && userType == "student")
@@ -67,131 +69,71 @@ int main()
         }
         else
         {
-            cout << "Invalid username or password. Please try again." << endl;
+            cout << "Invalid  password. Please try again." << endl;
         }
     }
 
     return 0;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 // void pasword::access()
 
-void type_of_exam ::questiontesti()
+
+void student :: examtime()
 {
-    int numberOfStudents, numberOfQuestions;
-    cout << "Enter the number of students forquestiontesti : ";
-    cin >> numberOfStudents;
-    cout << "Enter the number of questiontesti: ";
-    cin >> numberOfQuestions;
 
-    string *questions = new string[numberOfQuestions];
-    char *answerKey = new char[numberOfQuestions];
-    char **studentAnswers = new char *[numberOfStudents];
+    // time according seccond)
+    int examDuration = 120;
 
-    for (int i = 0; i < numberOfStudents; ++i)
-    {
-        studentAnswers[i] = new char[numberOfQuestions];
-    }
+   
+    auto startTime = chrono::steady_clock::now();
 
-    // Enter the questions and correct answers
-    for (int i = 0; i < numberOfQuestions; ++i)
-    {
-        cout << " Boss :Enter question  " << (i + 1) << ": ";
-        cin.ignore();
-        getline(cin, questions[i]);
-        cout << "Boss :Enter the correct answer for question " << (i + 1) << " (A, B, C, or D): ";
-        cin >> answerKey[i];
-    }
+    // start
+  cout <<"please start the exam you dont have very time \n " ;
+string ans;
+cin>>ans ;
 
-    /*  for (int s = 0; s < numberOfStudents; ++s)
-        {
-            int score = 0;
-            cout << "Enter answers for student " << (s + 1) << ": \n";
-            for (int q = 0; q < numberOfQuestions; ++q)
-            {
-                cin >> studentAnswers[s][q];
-                if (studentAnswers[s][q] == answerKey[q])
-                {
-                    score++;
-                }
-            }
-            cout << "Score for student " << (s + 1) << ": " << score << " out of " << numberOfQuestions << endl
-                 << "\n you can continue or finished so enter anumber";
-        }
-    */
-    delete[] questions;
-    delete[] answerKey;
-    for (int i = 0; i < numberOfStudents; ++i)
-    {
-        delete[] studentAnswers[i];
-    }
-    delete[] studentAnswers;
+
+    // prossesing
+    this_thread::sleep_for(chrono::seconds(examDuration));
+
+    // finishhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+    auto endTime = chrono::steady_clock::now();
+
+    // hesab
+    auto duration = chrono::duration_cast<chrono::seconds>(endTime - startTime).count();
+
+    // close
+    cout << "program want close " << duration << " ثانیه" << endl;
+    cout << "closing........." << endl;
+
+
+	
+	
 }
-
-void type_of_exam ::descripQues()
+void student ::eteraz()
 {
-    int numberOfStudents, numberOfDescripQues;
-    cout << "Enter the number of students: ";
-    cin >> numberOfStudents;
-    cout << "Enter the number of descriptive questions: ";
-    cin >> numberOfDescripQues;
-
-    string *questions = new string[numberOfDescripQues];
-    string *correctAnswers = new string[numberOfDescripQues];
-    string **studentAnswers = new string *[numberOfStudents];
-    for (int i = 0; i < numberOfStudents; ++i)
-    {
-        studentAnswers[i] = new string[numberOfDescripQues];
+ 
     }
 
-    for (int i = 0; i < numberOfDescripQues; ++i)
-    {
-        cout << "Enter question " << (i + 1) << ": ";
-        cin.ignore();
-        getline(cin, questions[i]);
-        cout << "Enter answer for question " << (i + 1) << ": ";
-        getline(cin, correctAnswers[i]);
-    }
 
-    /*  for (int s = 0; s < numberOfStudents; ++s)
-        {
-            cout << "Answer from student " << (s + 1) << ": \n";
-            for (int q = 0; q < numberOfDescripQues; ++q)
-            {
-                cout << questions[q] << endl;
-                getline(cin, studentAnswers[s][q]);
 
-                for (int s = 0; s < numberOfStudents; ++s)
-                {
-                    int score = 0;
-                    cout << "Answer from student " << (s + 1) << ": \n";
-                    for (int q = 0; q < numberOfDescripQues; ++q)
-                    {
-                        cout << questions[q] << endl;
-                        getline(cin, studentAnswers[s][q]);
-                        if (studentAnswers[s][q] == correctAnswers[q])
-                        {
-                            score++;
-                        }
-                    }
-                    cout << "Score for student " << (s + 1) << ": " << score << " out of " << numberOfDescripQues << endl
-                         << "\n you can continue or finished so enter anumber";
-                }
-            }
-        }
-    */
-    delete[] questions;
-    delete[] correctAnswers;
-    for (int i = 0; i < numberOfStudents; ++i)
-    {
-        delete[] studentAnswers[i];
-    }
-    delete[] studentAnswers;
-}
-
-void type_of_exam ::techer_work()
+void student::techer_work()
 {
-    type_of_exam obj1;
+    student obj1;
     obj1.list_teacher();
     int item;
     cin >> item;
@@ -208,14 +150,14 @@ void type_of_exam ::techer_work()
             {
             case 1:
             {
-                obj1.questiontesti();
+                obj1.examtime();
 
                 break;
             }
 
             case 2:
             {
-                obj1.descripQues();
+                obj1.eteraz();
 
                 break;
             }
@@ -251,9 +193,9 @@ void type_of_exam ::techer_work()
     }
 }
 
-void type_of_exam ::student_work()
+void student ::student_work()
 {
-    type_of_exam obj2;
+   student obj2;
     obj2.list_student();
     int item;
     cin >> item;
@@ -273,31 +215,28 @@ void type_of_exam ::student_work()
     }
 }
 
-void type_of_exam::list_teacher()
+void student::list_teacher()
 {
-    cout << " Dear Boss please choose an option  :  ";
-    cout << "\n1_making the tst .";
-    cout << "\n2_view the history of previouns exams and their results .";
-    cout << "\n3_exams in the correction queue .";
-    cout << "\n4_list of students (view current lists / create a new list) \n";
+    cout << " student: please choose the action 1  :  ";
+
 }
 
-void type_of_exam::list_student()
+void student::list_student()
 {
     cout << "\n1_start the tst .";
     cout << "\n2_....";
 }
 
-void type_of_exam::list_of_questions()
+void student::list_of_questions()
 {
-    cout << "\n Dear BOSS";
-    cout << "\n 1_for make tst exam .";
+    cout << "\n Dear user";
+    cout << "\n 1_for eteraz with your grade.";
     cout << "\n 2_for make dscrip exam  .";
     cout << "\n 3_for show grade of student   ";
     cout << "\n 4_ finish .";
 }
 
-void type_of_exam ::boss()
+void student ::boss()
 {
     int n = 0;
     cout << "DEAR BOSS please enter number of student that have  grads: \n  ";
